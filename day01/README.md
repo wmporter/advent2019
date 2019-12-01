@@ -1,3 +1,5 @@
+[Advent of Code 2019 Day 01](https://adventofcode.com/2019/day/1)
+
 ### Run Solutions
 ```
 $ python3 rocket.py
@@ -5,7 +7,6 @@ $ node rocket.js
 ```
 
 ### Day 1: The Tyranny of the Rocket Equation
-[Advent of Code 2019 Day 01](https://adventofcode.com/2019/day/1)
 
 #### --- Part One ---
 
