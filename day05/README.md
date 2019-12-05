@@ -2,7 +2,7 @@
 
 ### Run Solution
 ```
-$ python3 secure.py
+$ python3 diagnostic.py
 ```
 
 ### Day 5: Sunny with a Chance of Asteroids
