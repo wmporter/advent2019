@@ -2,7 +2,7 @@
 
 ### Run Solution
 ```
-$ python3 orbit.py
+$ python3 image.py
 ```
 
 ### Day 8: Space Image Format
