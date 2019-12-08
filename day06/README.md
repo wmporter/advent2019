@@ -44,10 +44,10 @@ For example, suppose you have the following map:
 
 Visually, the above map of orbits looks like this:
 
-            G - H       J - K - L
+         G - H       J - K - L
         /           /
     COM - B - C - D - E - F
-                \
+                   \
                     I
 
 In this visual representation, when two objects are connected by a line, the one on the right directly orbits the one on the left.
@@ -85,12 +85,12 @@ For example, suppose you have the following map:
 
 Visually, the above map of orbits looks like this:
 
-                            YOU
-                            /
+                              YOU
+                             /
             G - H       J - K - L
-        /           /
+           /           /
     COM - B - C - D - E - F
-                \
+                   \
                     I - SAN
 
 In this example, YOU are in orbit around K, and SAN is in orbit around I. To move from K to I, a minimum of 4 orbital transfers are required:
@@ -103,11 +103,11 @@ In this example, YOU are in orbit around K, and SAN is in orbit around I. To mov
 Afterward, the map of orbits looks like this:
 
             G - H       J - K - L
-        /           /
+           /           /
     COM - B - C - D - E - F
-                \
+                   \
                     I - SAN
-                    \
-                    YOU
+                     \
+                      YOU
 
 What is the minimum number of orbital transfers required to move from the object YOU are orbiting to the object SAN is orbiting? (Between the objects they are orbiting - not between YOU and SAN.)
