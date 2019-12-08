@@ -12,9 +12,9 @@ Based on the navigational maps, you're going to need to send more power to your 
 
 There are five amplifiers connected in series; each one receives an input signal and produces an output signal. They are connected such that the first amplifier's output leads to the second amplifier's input, the second amplifier's output leads to the third amplifier's input, and so on. The first amplifier's input value is 0, and the last amplifier's output leads to your ship's thrusters.
 
-    O-------O  O-------O  O-------O  O-------O  O-------O
-0 ->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-> (to thrusters)
-    O-------O  O-------O  O-------O  O-------O  O-------O
+        O-------O  O-------O  O-------O  O-------O  O-------O
+    0 ->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-> (to thrusters)
+        O-------O  O-------O  O-------O  O-------O  O-------O
 
 The Elves have sent you some Amplifier Controller Software (your puzzle input), a program that should run on your existing Intcode computer. Each amplifier will need to run a copy of the program.
 
@@ -54,14 +54,14 @@ Try every combination of phase settings on the amplifiers. What is the highest s
 #### --- Part Two ---
 It's no good - in this configuration, the amplifiers can't generate a large enough output signal to produce the thrust you'll need. The Elves quickly talk you through rewiring the amplifiers into a feedback loop:
 
-      O-------O  O-------O  O-------O  O-------O  O-------O
-0 -+->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-.
-   |  O-------O  O-------O  O-------O  O-------O  O-------O |
-   |                                                        |
-   '--------------------------------------------------------+
-                                                            |
-                                                            v
-                                                     (to thrusters)
+          O-------O  O-------O  O-------O  O-------O  O-------O
+    0 -+->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-.
+       |  O-------O  O-------O  O-------O  O-------O  O-------O |
+       |                                                        |
+       '--------------------------------------------------------+
+                                                                |
+                                                                v
+                                                         (to thrusters)
 
 Most of the amplifiers are connected as they were before; amplifier A's output is connected to amplifier B's input, and so on. However, the output from amplifier E is now connected into amplifier A's input. This creates the feedback loop: the signal will be sent through the amplifiers many times.
 
@@ -75,13 +75,13 @@ Eventually, the software on the amplifiers will halt after they have processed t
 
 Here are some example programs:
 
-- Max thruster signal 139629729 (from phase setting sequence 9,8,7,6,5):
-3,26,1001,26,-4,26,3,27,1002,27,2,27,1,27,26,
-27,4,27,1001,28,-1,28,1005,28,6,99,0,0,5
+- Max thruster signal 139629729 (from phase setting sequence 9,8,7,6,5):  
+  3,26,1001,26,-4,26,3,27,1002,27,2,27,1,27,26,  
+  27,4,27,1001,28,-1,28,1005,28,6,99,0,0,5
 
-- Max thruster signal 18216 (from phase setting sequence 9,7,8,5,6):
-3,52,1001,52,-5,52,3,53,1,52,56,54,1007,54,5,55,1005,55,26,1001,54,
--5,54,1105,1,12,1,53,54,53,1008,54,0,55,1001,55,1,55,2,53,55,53,4,
-53,1001,56,-1,56,1005,56,6,99,0,0,0,0,10
+- Max thruster signal 18216 (from phase setting sequence 9,7,8,5,6):  
+  3,52,1001,52,-5,52,3,53,1,52,56,54,1007,54,5,55,1005,55,26,1001,54,  
+  -5,54,1105,1,12,1,53,54,53,1008,54,0,55,1001,55,1,55,2,53,55,53,4,  
+  53,1001,56,-1,56,1005,56,6,99,0,0,0,0,10
 
 Try every combination of the new phase settings on the amplifier feedback loop. What is the highest signal that can be sent to the thrusters?
