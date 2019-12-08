@@ -12,15 +12,15 @@ You've landed at the Universal Orbit Map facility on Mercury. Because navigation
 
 Except for the universal Center of Mass (COM), every object in space is in orbit around exactly one other object. An orbit looks roughly like this:
 
-                    \
-                    \
+                     \
+                       \
                         |
                         |
     AAA--> o            o <--BBB
                         |
                         |
-                    /
-                    /
+                       /
+                     /
 
 In this diagram, the object BBB is in orbit around AAA. The path that BBB takes around AAA (drawn with lines) is only partly shown. In the map data, this orbital relationship is written AAA)BBB, which means "BBB is in orbit around AAA".
 
