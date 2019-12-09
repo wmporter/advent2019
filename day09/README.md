@@ -2,7 +2,7 @@
 
 ### Run Solution
 ```
-$ python3 image.py
+$ python3 boost.py
 ```
 
 ### Day 9: Sensor Boost
