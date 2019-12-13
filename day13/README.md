@@ -2,7 +2,7 @@
 
 ### Run Solution
 ```
-$ python3 jupiter.py
+$ python3 arcade.py
 ```
 
 ### Day 13: Care Package
