@@ -1,4 +1,6 @@
 import sys
+import time
+import random
 
 input_file = 'input'
 
@@ -8,6 +10,10 @@ output_buffer = []
 board = [[' ' for x in range(50)] for y in range(50)]
 block_tiles = 0
 score = 0
+ball_x = 0
+paddle_x = 0
+
+# Visualization of the game board
 def display_board():
     for x in range(25):
         for y in range(50):
@@ -16,19 +22,16 @@ def display_board():
     print('score:', score)
 
 
-# Simple integer input
-# No prompt and no error message for bad input
+# Return an integer based on the positions of the paddle and ball
+# Move the paddle toward the ball
 def get_int():
     display_board()
-    x = input()
-    while True:
-        try:
-            d = int(x)
-        except ValueError:
-            x = input()
-            continue
-        break
-    return d
+    # Pause for 10ms so the visualization appears animated 
+    time.sleep(0.01)
+
+    if paddle_x < ball_x: return 1
+    if paddle_x > ball_x: return -1
+    return 0
 
 # Addition and multiplication operations
 # Opcodes 1 and 2
@@ -125,7 +128,7 @@ def rel_base_adjust(memory, oper, value):
 # This function is our advanced intcode computer
 # It executes the specified program and returns the output
 def computer(program):
-    global output_buffer, block_tiles, score
+    global output_buffer, block_tiles, score, paddle_x, ball_x
     tiles = [' ', 'w', 'B', '-', 'O']
     # Start at position zero
     pos = 0
@@ -133,7 +136,6 @@ def computer(program):
     # Copy the "program" into "memory"
     # Since it's a list, making changes to program will affect the one in caller too
     memory = program[:]
-    memory[0] = 2
     while True:
         oper = memory[pos]
         opcode = oper % 100
@@ -145,9 +147,14 @@ def computer(program):
             pos += 2
         elif opcode == 4:
             output(memory, *memory[pos:pos+2])
+            # Modification to process output commands
             if len(output_buffer) == 3:
                 if output_buffer[2] == 2:
                     block_tiles += 1
+                if output_buffer[2] == 3:
+                    paddle_x = output_buffer[0]
+                if output_buffer[2] == 4:
+                    ball_x = output_buffer[0]
                 if output_buffer[0] == -1 and output_buffer[1] == 0:
                     score = output_buffer[2]
                 else:
@@ -169,6 +176,8 @@ def computer(program):
             exit(1)
     return memory[0]
 
+
+
 def part_one():
     # The program instructions are stored as text
     # Read it in and convert to list of ints
@@ -179,4 +188,16 @@ def part_one():
     computer(commands)
     return block_tiles
 
+def part_two():
+    # The program instructions are stored as text
+    # Read it in and convert to list of ints
+    with open(input_file) as f:
+        commands = list(map(lambda x: int(x), f.read().split(',')))
+    commands[0] = 2
+    extra_mem = [0 for x in range(5000)]
+    commands.extend(extra_mem)
+    computer(commands)
+    return score
+
 print(part_one())
+print(part_two())
